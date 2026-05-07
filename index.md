@@ -140,8 +140,9 @@ For any other transfer of personal data outside the European Economic Area, we r
 
 | Data | Retention |
 |---|---|
-| Parent account & household data | While the account exists; deleted within 30 days of account deletion |
-| Children profiles | While the parent keeps them; deleted with the parent's account |
+| Household data (children profiles, rules, screen-time history) | Until the parent deletes the household from the App, then erased immediately |
+| Parent account (email, login credentials) | Until the parent requests account deletion by email; erased within 30 days of the request |
+| Children profiles | Erased automatically when the parent deletes the household or the account |
 | Screen-time and usage events | Up to 12 months on a rolling window, then aggregated or deleted |
 | Authentication logs | Up to 12 months |
 | Support messages | Up to 24 months |
@@ -179,7 +180,7 @@ Under the GDPR you (and, for a child, the parent on their behalf) have the right
 
 To exercise any of these rights, email us at **developer@code4all.ro**. We respond within 30 days.
 
-You can also delete your account directly in the App: **Settings → Account → Delete account**.
+You can delete your household and all the data inside it directly in the App: **Settings → Delete household**. To delete the account itself (your email and login credentials) please contact us at **developer@code4all.ro** and we will erase it within 30 days.
 
 ---
 
