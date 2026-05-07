@@ -12,7 +12,7 @@ We are based in Romania and process personal data in accordance with the EU Gene
 ## 1. Who we are
 
 **Data controller:** CODE4ALL SRL
-**CUI / VAT:** 44417884
+**CUI / VAT:** RO44417884
 **Trade Register:** J2021000917152
 **Registered address:** Str. Stejarului 128 F, Sat Ulmi, jud. Dâmbovița, cod poștal 137455, Romania
 **Email:** developer@code4all.ro
@@ -85,6 +85,17 @@ The App declares an Android Accessibility Service. It is used **exclusively** to
 ### 3.6 System overlay
 
 The App requests permission to display content over other apps (`SYSTEM_ALERT_WINDOW`) **only** to show the block screen when a restricted app is opened. No advertising or content unrelated to the digital-wellbeing rules configured by the parent is shown.
+
+### 3.7 All sensitive permissions are explicit opt-in
+
+The permissions described in §3.3 – §3.6 — **Usage Access** (`PACKAGE_USAGE_STATS`), **Accessibility Service**, **Display over other apps** (`SYSTEM_ALERT_WINDOW`), and **Camera** — are all considered "special" or "runtime" permissions on Android. None of them is granted silently when the App is installed. For each one, the parent must:
+
+1. Open the App on the child's device,
+2. Tap the on-screen prompt explaining what the permission is for and why etruvio needs it,
+3. Be redirected to the corresponding Android Settings screen, and
+4. Manually enable the permission for etruvio.
+
+The parent can revoke any of these permissions at any time from the same Android Settings screens. When a permission is revoked, the related feature stops working, but no other personal data is affected.
 
 ---
 
