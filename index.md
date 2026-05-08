@@ -15,7 +15,7 @@ We are based in Romania and process personal data in accordance with the EU Gene
 **CUI / VAT:** RO44417884
 **Trade Register:** J2021000917152
 **Registered address:** Str. Stejarului 128 F, Sat Ulmi, jud. Dâmbovița, cod poștal 137455, Romania
-**Email:** developer@code4all.ro
+**Email:** privacy@etruvio.ro
 **Website:** https://etruvio.ro
 
 If you have any question about this policy or want to exercise your rights, contact us at the email above.
@@ -189,9 +189,9 @@ Under the GDPR you (and, for a child, the parent on their behalf) have the right
 - **Withdraw consent** at any time, where processing is based on consent
 - **Lodge a complaint** with the Romanian Data Protection Authority (ANSPDCP, https://www.dataprotection.ro/)
 
-To exercise any of these rights, email us at **developer@code4all.ro**. We respond within 30 days.
+To exercise any of these rights, email us at **privacy@etruvio.ro**. We respond within 30 days.
 
-You can delete your household and all the data inside it directly in the App: **Settings → Delete household**. To delete the account itself (your email and login credentials) please contact us at **developer@code4all.ro** and we will erase it within 30 days.
+You can delete your household and all the data inside it directly in the App: **Settings → Delete household**. To delete the account itself (your email and login credentials) please contact us at **privacy@etruvio.ro** and we will erase it within 30 days.
 
 ---
 
@@ -204,7 +204,7 @@ etruvio is designed to be operated by a parent who has authority over the child 
 - The parent can review, modify, and delete the child profile at any time from the App.
 - A child's data is automatically deleted when the parent deletes the child profile or the parent's account.
 
-If you believe a child profile has been created in our service without parental consent, contact **developer@code4all.ro** and we will investigate and delete it.
+If you believe a child profile has been created in our service without parental consent, contact **privacy@etruvio.ro** and we will investigate and delete it.
 
 ---
 
@@ -232,5 +232,5 @@ If we change this policy materially, we will notify users in the App and via the
 
 CODE4ALL SRL
 Str. Stejarului 128 F, Sat Ulmi, jud. Dâmbovița, cod poștal 137455, Romania
-**developer@code4all.ro**
+**privacy@etruvio.ro**
 https://etruvio.ro
