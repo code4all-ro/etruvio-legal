@@ -1,6 +1,6 @@
 # Privacy Policy — etruvio
 
-**Last updated:** 2026-06-01
+**Last updated:** 2026-07-10
 **Effective date:** 2026-06-01
 
 This Privacy Policy describes how **CODE4ALL SRL** ("we", "us", or "etruvio") collects, uses, and protects personal data when you use the **etruvio** mobile application (the "App") and the related family-oriented digital-wellbeing service.
@@ -110,6 +110,16 @@ The permissions described in §3.3 – §3.6 — **Usage Access** (`PACKAGE_USAG
 
 The parent can revoke any of these permissions at any time from the same Android Settings screens. When a permission is revoked, the related feature stops working, but no other personal data is affected.
 
+### 3.8 Push notifications
+
+To deliver notifications to a parent's or child's device even when the App is closed (for example, "a task needs approval" or "a new task for you"), etruvio uses **Firebase Cloud Messaging (FCM)**, a service provided by Google. This involves:
+
+- **Push token:** when the App starts, the device obtains a unique **registration token** from Firebase. We store this token — linked to the parent account or the child profile and to the paired device — **solely to route notifications to the correct device**. It is not an advertising identifier and is not used for tracking or profiling. The token is deleted when the device is unpaired, when the household or account is deleted, or when the token becomes invalid.
+- **Notification content:** the text of a notification may include a household member's **first name** and the **title of the task or reward** it concerns (e.g., *"{child} submitted "{task}" for approval"*), and — for a household invitation that is declined — the invitee's **email address**. This content passes through Google's FCM servers only to deliver the notification to the recipient's device. It is not stored by us beyond the corresponding in-app inbox entry described in §3.1.
+- **Silent "wake" messages:** for enforcement events (a rule change, an on-demand sync, or an on-demand location request) etruvio sends a data-only message that contains a single event-type keyword and **no personal data**.
+
+On Android 13 and later, showing notifications also requires the runtime **Notifications** permission, which the user can grant or deny. We use push notifications **only to operate the service** — we never send marketing or advertising notifications.
+
 ---
 
 ## 4. How we use the data
@@ -148,6 +158,7 @@ We do not sell or rent personal data. We share data only with the following proc
 | **Supabase** (Supabase Inc. / Supabase Ireland) | Authentication, database, edge functions, realtime channels | Switzerland — Zurich (Central Europe) |
 | **Google Identity Services** (Google Ireland Ltd.) | Optional "Sign in with Google" for parents — receives the Google account email, name, and profile picture | EU / global |
 | **Google Play Services** | App distribution, in-app updates, integrity checks | EU / global |
+| **Firebase Cloud Messaging** (Google Ireland Ltd. / Google LLC) | Delivery of push notifications to parent and child devices (see §3.8) | EU / global |
 | **Resend** (Resend, Inc.) | Transactional email delivery: account verification, password reset, household invitations | EU (Ireland) |
 | **Hostinger** (Hostinger International Ltd.) | Website hosting, deep-link verification | EU |
 
@@ -174,6 +185,7 @@ For any other transfer of personal data outside the European Economic Area, we r
 | Children profiles | Erased automatically when the parent deletes the household or the account |
 | Screen-time and usage events | Up to 12 months on a rolling window, then aggregated or deleted |
 | Device location (last on-demand fix) | Only the single most recent fix is stored; overwritten by each new request and erased when the device or household is deleted |
+| Push notification token | Until the device is unpaired, the household/account is deleted, or the token becomes invalid |
 | Authentication logs | Up to 12 months |
 | Support messages | Up to 24 months |
 | Backups | Encrypted, rotated within 30 days |
