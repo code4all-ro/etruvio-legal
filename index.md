@@ -1,7 +1,7 @@
 # Privacy Policy — etruvio
 
 **Last updated:** 2026-07-10
-**Effective date:** 2026-06-01
+**Effective date:** 2026-07-10
 
 This Privacy Policy describes how **CODE4ALL SRL** ("we", "us", or "etruvio") collects, uses, and protects personal data when you use the **etruvio** mobile application (the "App") and the related family-oriented digital-wellbeing service.
 
