@@ -1,3 +1,7 @@
+---
+description: Documente legale pentru etruvio — aplicația de bunăstare digitală pentru familie, de la CODE4ALL SRL.
+---
+
 # Politica de confidențialitate — etruvio
 
 **Ultima actualizare:** 10 iulie 2026
