@@ -4,10 +4,12 @@ description: Documente legale pentru etruvio — aplicația de bunăstare digita
 
 # Politica de confidențialitate — etruvio
 
-**Ultima actualizare:** 10 iulie 2026
-**Data intrării în vigoare:** 10 iulie 2026
+**Ultima actualizare:** 16 septembrie 2026
+**Data intrării în vigoare:** 16 septembrie 2026
 
-Această Politică de confidențialitate descrie modul în care **CODE4ALL SRL** („noi", „nouă" sau „etruvio") colectează, utilizează și protejează datele cu caracter personal atunci când folosiți aplicația mobilă **etruvio** („Aplicația") și serviciul aferent dedicat bunăstării digitale a familiei.
+[English](./) · [Suport](suport)
+
+Această Politică de confidențialitate descrie modul în care **CODE4ALL SRL** („noi", „nouă" sau „etruvio") colectează, utilizează și protejează datele cu caracter personal atunci când folosiți aplicația mobilă **etruvio** pentru Android și iOS („Aplicația") și serviciul aferent dedicat bunăstării digitale a familiei.
 
 Suntem stabiliți în România și prelucrăm datele cu caracter personal în conformitate cu Regulamentul General privind Protecția Datelor al UE (RGPD/GDPR), Legea nr. 190/2018 și normele aplicabile privind confidențialitatea copiilor.
 
@@ -69,9 +71,9 @@ Pentru fiecare profil de copil, părintele furnizează:
 - **Notițe/mesaje** pe care copilul le scrie când trimite o misiune spre aprobare sau când solicită un privilegiu (a se vedea §3.1).
 - **Token-uri de autentificare** pentru sesiunea de pe dispozitivul copilului (separate de token-urile părintelui).
 
-### 3.3 De pe dispozitivul administrat al copilului
+### 3.3 De pe dispozitivul administrat al copilului (Android)
 
-Când etruvio este instalat pe dispozitivul Android al unui copil, prelucrăm:
+Când etruvio este instalat pe dispozitivul Android al unui copil, prelucrăm (pentru iOS, a se vedea §3.9):
 
 - **Date de utilizare a aplicațiilor** (ce aplicații rulează în prim-plan și pentru cât timp), folosite **exclusiv** pentru a aplica regulile stabilite de părinte — de exemplu pentru a bloca o aplicație restricționată sau pentru a contoriza timpul de ecran. Acestea sunt colectate prin permisiunea Android `PACKAGE_USAGE_STATS`.
 - **Lista aplicațiilor instalate**, folosită pentru ca părintele să poată alege ce aplicații sunt permise sau restricționate (`QUERY_ALL_PACKAGES`).
@@ -124,6 +126,19 @@ Pentru a livra notificări pe dispozitivul unui părinte sau al unui copil chiar
 
 Pe Android 13 și versiunile ulterioare, afișarea notificărilor necesită și permisiunea de rulare **Notificări**, pe care utilizatorul o poate acorda sau refuza. Folosim notificările push **exclusiv pentru funcționarea serviciului** — nu trimitem niciodată notificări de marketing sau de publicitate.
 
+### 3.9 Pe iOS (iPhone / iPad)
+
+Versiunea pentru iOS a Aplicației funcționează diferit față de Android, deoarece Apple nu permite aplicațiilor terțe să observe alte aplicații. Pe un dispozitiv iOS prelucrăm:
+
+- **Identificatorul dispozitivului:** valoarea `identifierForVendor` furnizată de iOS (un identificator limitat la aplicațiile CODE4ALL de pe acel dispozitiv; se resetează când toate aplicațiile noastre sunt dezinstalate). Îl folosim pentru a recunoaște același dispozitiv în fluxurile de asociere.
+- **Informații despre dispozitiv:** modelul, numele platformei („iOS") și versiunea sistemului de operare, transmise la asociere, pentru ca părintele să poată deosebi dispozitivele.
+- **Semnal periodic de stare (heartbeat):** nivelul bateriei, starea de încărcare și permisiunile de sistem acordate Aplicației, transmise periodic cât timp copilul folosește Aplicația. Pe iOS **nu** primim aplicația aflată în prim-plan și **nu** citim lista aplicațiilor instalate.
+- **Regulile de timp de ecran și de concentrare** sunt aplicate prin cadrul **Screen Time** al Apple (Family Controls, Device Activity, Managed Settings). Acest cadru rulează pe dispozitiv și nu ne dezvăluie niciodată ce aplicații folosește copilul sau pentru cât timp; Aplicația primește de la serverul nostru doar minutele de timp de ecran acordate de părinte și le aplică local.
+- **Camera:** folosită exclusiv pentru scanarea codului QR de asociere, procesată pe dispozitiv de scanerul de sistem; imaginile nu sunt niciodată încărcate sau stocate.
+- **Notificările push** sunt livrate prin **Apple Push Notification service** (APNs), direcționate prin Firebase Cloud Messaging conform §3.8.
+- **Sign in with Apple:** dacă părintele alege această opțiune, primim de la Apple un identificator de utilizator stabil, numele (doar la prima autentificare) și fie adresa de email reală, fie o adresă de redirecționare „Hide My Email" de la Apple.
+- **Locația nu** este colectată pe iOS.
+
 ---
 
 ## 4. Cum folosim datele
@@ -163,6 +178,7 @@ Nu vindem și nu închiriem date cu caracter personal. Partajăm date exclusiv c
 | **Google Identity Services** (Google Ireland Ltd.) | Autentificarea opțională „Sign in with Google" pentru părinți — primește adresa de email, numele și fotografia de profil ale contului Google | UE / global |
 | **Google Play Services** | Distribuția aplicației, actualizări în aplicație, verificări de integritate | UE / global |
 | **Firebase Cloud Messaging** (Google Ireland Ltd. / Google LLC) | Livrarea notificărilor push către dispozitivele părinților și ale copiilor (a se vedea §3.8) | UE / global |
+| **Apple** (Apple Distribution International Ltd.) | Distribuția prin App Store; autentificarea opțională „Sign in with Apple" pentru părinți (identificator de utilizator, nume, email sau adresă de redirecționare); Apple Push Notification service pentru livrarea notificărilor pe dispozitivele iOS (a se vedea §3.9) | UE / global |
 | **Resend** (Resend, Inc.) | Livrarea emailurilor tranzacționale: verificarea contului, resetarea parolei, invitațiile în familie | UE (Irlanda) |
 | **Hostinger** (Hostinger International Ltd.) | Găzduirea website-ului, verificarea deep-link-urilor | UE |
 
@@ -185,7 +201,7 @@ Pentru orice alt transfer de date cu caracter personal în afara Spațiului Econ
 | Date | Perioadă de păstrare |
 |---|---|
 | Datele familiei (profiluri de copii, reguli, istoricul timpului de ecran) | Până când părintele șterge familia din Aplicație, apoi sunt șterse imediat |
-| Contul părintelui (email, credențiale de autentificare) | Până când părintele solicită ștergerea contului prin email; se șterge în termen de 30 de zile de la solicitare |
+| Contul părintelui (email, credențiale de autentificare) | Se șterge imediat când părintele își șterge contul din Aplicație (**Setări → Securitate → Șterge contul meu**) sau în termen de 30 de zile de la o solicitare prin email |
 | Profilurile copiilor | Se șterg automat când părintele șterge familia sau contul |
 | Evenimente de timp de ecran și de utilizare | Până la 12 luni, într-o fereastră glisantă, apoi sunt agregate sau șterse |
 | Locația dispozitivului (ultima poziție preluată la cerere) | Se stochează doar cea mai recentă poziție; este suprascrisă la fiecare nouă solicitare și ștearsă când dispozitivul sau familia este ștearsă |
@@ -226,7 +242,7 @@ Niciun sistem nu este perfect sigur. Dacă luăm cunoștință de o încălcare 
 
 Pentru a exercita oricare dintre aceste drepturi, scrieți-ne la **privacy@etruvio.ro**. Răspundem în termen de 30 de zile.
 
-Puteți șterge familia și toate datele din interiorul acesteia direct din Aplicație: **Setări → Șterge familia**. Pentru a șterge contul propriu-zis (emailul și credențialele de autentificare), vă rugăm să ne contactați la **privacy@etruvio.ro** și îl vom șterge în termen de 30 de zile.
+Puteți șterge familia și toate datele din interiorul acesteia direct din Aplicație: **Setări → Familii → Șterge familia**. Puteți șterge și contul propriu-zis (emailul și credențialele de autentificare, împreună cu familiile pe care le dețineți) din Aplicație: **Setări → Securitate → Șterge contul meu** — ștergerea este imediată. Dacă preferați, contactați-ne la **privacy@etruvio.ro** și îl vom șterge în termen de 30 de zile.
 
 ---
 
@@ -243,7 +259,9 @@ Dacă aveți motive să credeți că în serviciul nostru a fost creat un profil
 
 ---
 
-## 12. Permisiuni pe Android — rezumat pe înțelesul tuturor
+## 12. Permisiuni — rezumat pe înțelesul tuturor
+
+### 12.1 Android
 
 | Permisiune | De ce are etruvio nevoie de ea | Ce nu facem niciodată |
 |---|---|---|
@@ -255,6 +273,17 @@ Dacă aveți motive să credeți că în serviciul nostru a fost creat un profil
 | Locație (opțional) | Preluarea unei singure poziții atunci când un membru al familiei o solicită, pentru a putea găsi dispozitivul | Urmărim locația continuu sau în fundal ori păstrăm un istoric al locațiilor |
 | Serviciu în prim-plan și notificări | Menținerea regulilor în funcțiune și informarea utilizatorului | Trimitem notificări de marketing |
 | Pornire la boot | Reactivarea regulilor după repornirea dispozitivului | Trezim dispozitivul din orice alt motiv |
+
+### 12.2 iOS
+
+| Permisiune | De ce are etruvio nevoie de ea | Ce nu facem niciodată |
+|---|---|---|
+| Camera | Scanarea unui cod QR pentru asocierea dispozitivului unui copil | Fotografiem, înregistrăm video, încărcăm imagini |
+| Notificări | Informarea părintelui și a copilului (misiune de aprobat, misiune nouă, privilegiu acordat) | Trimitem notificări de marketing |
+| Screen Time (Family Controls) | Aplicarea ferestrelor de concentrare și a limitelor de timp de ecran stabilite de părinte pe dispozitivul copilului | Citim ce aplicații folosește copilul sau trimitem către serverele noastre utilizarea altor aplicații |
+| Reîmprospătare în fundal | Menținerea la zi a regulilor și a notificărilor | Urmărim locația sau rulăm orice altceva fără legătură cu regulile familiei |
+
+Pe iOS, părintele acordă explicit accesul la Screen Time pe dispozitivul copilului și îl poate revoca oricând din **Setări → Timp de utilizare**; după revocare, regulile nu mai sunt aplicate, iar nicio altă dată cu caracter personal nu este afectată.
 
 ---
 
