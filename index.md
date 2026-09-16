@@ -1,9 +1,11 @@
 # Privacy Policy — etruvio
 
-**Last updated:** 2026-07-10
-**Effective date:** 2026-07-10
+**Last updated:** 2026-09-16
+**Effective date:** 2026-09-16
 
-This Privacy Policy describes how **CODE4ALL SRL** ("we", "us", or "etruvio") collects, uses, and protects personal data when you use the **etruvio** mobile application (the "App") and the related family-oriented digital-wellbeing service.
+[Română](confidentialitate) · [Support](support)
+
+This Privacy Policy describes how **CODE4ALL SRL** ("we", "us", or "etruvio") collects, uses, and protects personal data when you use the **etruvio** mobile application for Android and iOS (the "App") and the related family-oriented digital-wellbeing service.
 
 We are based in Romania and process personal data in accordance with the EU General Data Protection Regulation (GDPR), Romanian Law 190/2018, and applicable children's privacy rules.
 
@@ -65,9 +67,9 @@ While the child uses the App on their device, etruvio also stores:
 - **Notes / messages** the child writes when submitting a task or requesting a reward (see §3.1).
 - **Authentication tokens** for the child device session (separate from the parent's tokens).
 
-### 3.3 From the child's managed device
+### 3.3 From the child's managed device (Android)
 
-When etruvio is installed on a child's Android device, we process:
+When etruvio is installed on a child's Android device, we process (for iOS, see §3.9):
 
 - **App usage data** (which apps are running in the foreground and for how long), used **only** to enforce the rules set by the parent — for example to block a restricted app or to count screen time. This is collected via Android's `PACKAGE_USAGE_STATS` permission.
 - **List of installed apps**, used so the parent can choose which apps to allow or restrict (`QUERY_ALL_PACKAGES`).
@@ -120,6 +122,19 @@ To deliver notifications to a parent's or child's device even when the App is cl
 
 On Android 13 and later, showing notifications also requires the runtime **Notifications** permission, which the user can grant or deny. We use push notifications **only to operate the service** — we never send marketing or advertising notifications.
 
+### 3.9 On iOS (iPhone / iPad)
+
+The iOS version of the App works differently from Android because Apple does not allow third-party apps to observe other apps. On an iOS device we process:
+
+- **Device identifier:** the `identifierForVendor` value provided by iOS (an identifier scoped to apps from CODE4ALL on that device; it is reset when all our apps are removed). We use it to recognise the same device across pairing flows.
+- **Device information:** model, platform name ("iOS"), and OS version, sent at pairing time so the parent can tell devices apart.
+- **Device heartbeat:** battery level, charging status, and which system permissions the App has been granted, sent periodically while the child uses the App. On iOS we do **not** receive the app in the foreground and we do **not** read the list of installed apps.
+- **Screen-time and focus rules** are enforced through Apple's **Screen Time** framework (Family Controls, Device Activity, Managed Settings). This framework runs on the device and never discloses to us which apps the child uses or for how long; the App only receives from our server the screen-time minutes the parent has granted and applies them locally.
+- **Camera:** used only to scan the pairing QR code, processed on the device by the system scanner; frames are never uploaded or stored.
+- **Push notifications** are delivered through the **Apple Push Notification service** (APNs), routed via Firebase Cloud Messaging as described in §3.8.
+- **Sign in with Apple:** if the parent chooses it, we receive from Apple a stable user identifier, the name (only on first sign-in) and either the real email address or an Apple "Hide My Email" relay address.
+- **Location** is **not** collected on iOS.
+
 ---
 
 ## 4. How we use the data
@@ -159,6 +174,7 @@ We do not sell or rent personal data. We share data only with the following proc
 | **Google Identity Services** (Google Ireland Ltd.) | Optional "Sign in with Google" for parents — receives the Google account email, name, and profile picture | EU / global |
 | **Google Play Services** | App distribution, in-app updates, integrity checks | EU / global |
 | **Firebase Cloud Messaging** (Google Ireland Ltd. / Google LLC) | Delivery of push notifications to parent and child devices (see §3.8) | EU / global |
+| **Apple** (Apple Distribution International Ltd.) | App Store distribution; optional "Sign in with Apple" for parents (user identifier, name, email or relay address); Apple Push Notification service for delivering notifications to iOS devices (see §3.9) | EU / global |
 | **Resend** (Resend, Inc.) | Transactional email delivery: account verification, password reset, household invitations | EU (Ireland) |
 | **Hostinger** (Hostinger International Ltd.) | Website hosting, deep-link verification | EU |
 
@@ -181,7 +197,7 @@ For any other transfer of personal data outside the European Economic Area, we r
 | Data | Retention |
 |---|---|
 | Household data (children profiles, rules, screen-time history) | Until the parent deletes the household from the App, then erased immediately |
-| Parent account (email, login credentials) | Until the parent requests account deletion by email; erased within 30 days of the request |
+| Parent account (email, login credentials) | Erased immediately when the parent deletes the account in the App (**Settings → Security → Delete my account**), or within 30 days of a request by email |
 | Children profiles | Erased automatically when the parent deletes the household or the account |
 | Screen-time and usage events | Up to 12 months on a rolling window, then aggregated or deleted |
 | Device location (last on-demand fix) | Only the single most recent fix is stored; overwritten by each new request and erased when the device or household is deleted |
@@ -222,7 +238,7 @@ Under the GDPR you (and, for a child, the parent on their behalf) have the right
 
 To exercise any of these rights, email us at **privacy@etruvio.ro**. We respond within 30 days.
 
-You can delete your household and all the data inside it directly in the App: **Settings → Delete household**. To delete the account itself (your email and login credentials) please contact us at **privacy@etruvio.ro** and we will erase it within 30 days.
+You can delete your household and all the data inside it directly in the App: **Settings → Families → Delete family**. You can also delete the account itself (your email and login credentials, together with the households you own) in the App: **Settings → Security → Delete my account** — the deletion is immediate. If you prefer, contact us at **privacy@etruvio.ro** and we will erase it within 30 days.
 
 ---
 
@@ -239,7 +255,9 @@ If you believe a child profile has been created in our service without parental 
 
 ---
 
-## 12. Permissions on Android — plain-English summary
+## 12. Permissions — plain-English summary
+
+### 12.1 Android
 
 | Permission | Why etruvio needs it | What we never do |
 |---|---|---|
@@ -251,6 +269,17 @@ If you believe a child profile has been created in our service without parental 
 | Location (optional) | Take a single location fix when a family member requests it, so they can find the device | Track location continuously or in the background, or keep a location history |
 | Foreground service & notifications | Keep the rules running and inform the user | Send marketing notifications |
 | Run on boot | Re-enable rules after the device restarts | Wake the device for any other reason |
+
+### 12.2 iOS
+
+| Permission | Why etruvio needs it | What we never do |
+|---|---|---|
+| Camera | Scan a QR code to pair a child's device | Take photos, record video, upload images |
+| Notifications | Inform the parent and the child (task to approve, new task, privilege granted) | Send marketing notifications |
+| Screen Time (Family Controls) | Apply the focus windows and screen-time limits set by the parent on the child's device | Read which apps the child uses or send any usage of other apps to our servers |
+| Background App Refresh | Keep the rules and notifications current | Track location or run anything unrelated to the family rules |
+
+On iOS the parent grants Screen Time access explicitly on the child's device and can revoke it at any time in **Settings → Screen Time**; when revoked, the rules stop being enforced and no other personal data is affected.
 
 ---
 
